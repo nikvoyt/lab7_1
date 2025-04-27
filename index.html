@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета студента - обработка данных</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="date"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        fieldset {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .checkbox-group, .radio-group {
+            margin-bottom: 12px;
+        }
+        
+        /* Стили для чекбокса согласия */
+        #agree-container {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #ddd;
+        }
+        #agree {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        #agree-label {
+            display: inline;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+         
+        #confirmation {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #2ecc71;
+            border-radius: 8px;
+            background-color: #ecf9f2;
+            text-align: center;
+            display: none;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>Анкета студента</h1>
+    <div id="confirmation"></div>
+    <form id="studentForm" action="/is3_10/Labs/lb7/server/lb7.pl" method="GET">
+        <!-- Основные сведения -->
+        <div class="form-group">
+            <label for="lastname">Фамилия:</label>
+            <input type="text" id="lastname" name="lastname" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="firstname">Имя:</label>
+            <input type="text" id="firstname" name="firstname" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="middlename">Отчество:</label>
+            <input type="text" id="middlename" name="middlename">
+        </div>
+        
+        <div class="form-group">
+            <label for="birthyear">Год рождения:</label>
+            <input type="text" id="birthyear" name="birthyear" min="1900" max="2010" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="admissionyear">Год поступления в университет:</label>
+            <input type="text" id="admissionyear" name="admissionyear" min="2000" max="2030" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="group">Номер студенческой группы:</label>
+            <input type="text" id="group" name="group" required>
+        </div>
+
+        <fieldset>
+            <legend>Контактная информация</legend>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+            </div>
+            
+        </fieldset>
+        <fieldset>
+
+            </div>
+      
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" minlength="6">
+            </div>
+            
+        </fieldset>
+        
+        <div id="agree-container">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree" id="agree-label">Я согласен на обработку персональных данных</label>
+        </div>
+        
+        <div class="form-actions">
+            <input type="submit" value="Отправить">
+            <input type="reset" value="Сбросить">
+        </div>
+    </form>
+</body>
+</html>
